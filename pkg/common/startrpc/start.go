@@ -89,7 +89,7 @@ func Start[T any](ctx context.Context, disc *conf.Discovery, prometheusConfig *c
 		return err
 	}
 	var prometheusListenAddr string
-	if autoSetPorts {
+	if autoSetPorts || prometheusConfig.Ports == nil || len(prometheusConfig.Ports) == 0 {
 		prometheusListenAddr = net.JoinHostPort(listenIP, "0")
 	} else {
 		prometheusPort, err := datautil.GetElemByIndex(prometheusConfig.Ports, index)
