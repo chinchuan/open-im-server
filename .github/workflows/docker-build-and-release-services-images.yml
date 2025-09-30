@@ -37,7 +37,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.6.0
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: 
           tags: |
             type=raw,value=${{ github.event.inputs.tag }}
 
